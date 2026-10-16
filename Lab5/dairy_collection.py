@@ -17,6 +17,7 @@ def farmer_token(farmer):
     """Generate a SHA-256 token for a farmer."""
     return hashlib.sha256(farmer.encode()).hexdigest()
 
+
 def daily_total(connection, day):
     """Calculate the total milk collected on a given day."""
     rows = connection.execute(
@@ -24,6 +25,7 @@ def daily_total(connection, day):
     ).fetchall()
     total = sum(row[0] for row in rows)
     return f"Total: {total:.1f} litres"
+
 
 def top_farmer(connection):
     """Find the farmer with the highest total delivery."""
@@ -39,6 +41,7 @@ def top_farmer(connection):
 def print_slip(farmer):
     """Print a milk collection slip message."""
     print(f"printing slip for {farmer}")
+
 
 def low_fat(connection):
     """Find farmers whose milk fat content is below 3.5 or missing."""
@@ -73,6 +76,7 @@ def main():
     )
     print_slip("Gopal")
     print(farmer_token("Lata"))
+
 
 if __name__ == "__main__":
     main()
