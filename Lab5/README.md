@@ -1,51 +1,48 @@
-# Lab 5: Static Code Analysis — Dairy Milk Collection Ledger
+# Lab 5: Static Code Analysis
 
-**Your file:** `dairy_collection.py`
+## Objective
 
-Follow the lab handout for the full instructions.
+The aim of this lab was to check the quality, security, and formatting of the given Python program using Pylint, Bandit, and Flake8.
 
-## About the program
+## Project Description
 
-A collection ledger for a dairy cooperative. It records each farmer's milk deliveries, totals a day's collection, finds the top supplier, flags low-fat milk and prints collection slips.
+The Dairy Milk Collection Ledger is a Python program that records milk deliveries, calculates daily milk collection, identifies the top farmer, finds low-fat milk entries, and prints collection slip messages.
 
-The code works, but only just. It has quality, style and security problems of the kind Pylint, Flake8 and Bandit are built to find.
+## Issues Fixed
 
-## What to do
+- Replaced dynamically formatted SQL with parameterized queries to avoid SQL injection risks.
+- Replaced MD5 hashing with SHA-256 for generating farmer tokens.
+- Removed `os.system()` and used Python's `print()` instead.
+- Added docstrings to explain the module and functions.
+- Changed function names to Python's `snake_case` convention.
+- Removed unused imports.
+- Fixed long lines and other formatting issues.
+- Corrected the comparison with `None`.
+- Improved variable names and database connection handling.
 
-1. **Run it first** and read the output carefully:
-   ```bash
-   python dairy_collection.py
-   ```
-   It runs a short demonstration and may create a small output file in the current folder, so run it from a folder you don't mind adding files to.
+## Tools Used
 
-2. **Install the tools:**
-   ```bash
-   pip install pylint bandit flake8
-   ```
+- **Pylint:** Checked code quality and naming conventions.
+- **Bandit:** Checked for common security issues.
+- **Flake8:** Checked Python formatting and style.
 
-3. **Run the analysis** and save the reports:
-   ```bash
-   pylint dairy_collection.py > pylint_report.txt
-   bandit -r dairy_collection.py > bandit_report.txt
-   flake8 dairy_collection.py > flake8_report.txt
-   ```
+## Final Results
 
-4. **Document the issues** in `issues.md` using this table (at least 4 rows, high and medium severity first):
+| Tool | Result |
+|---|---|
+| Pylint | 10.00/10 |
+| Bandit | No issues identified |
+| Flake8 | No formatting issues reported |
 
-   | Issue | Type | Line(s) | Description | Fix Approach |
-   |-------|------|---------|-------------|--------------|
-   | ... | ... | ... | ... | ... |
+## Files in This Folder
 
-5. **Fix the code.** Fix at least 4 of the issues you documented, then rerun all three tools to confirm they are gone. Repeat until you are satisfied. The program should still do its job when you are done.
+- `dairy_collection.py` — Updated Python program.
+- `issues.md` — Issues identified and the fixes applied.
+- `pylint_report_before.txt` and `pylint_report_after.txt` — Pylint reports.
+- `bandit_report_before.txt` and `bandit_report_after.txt` — Bandit reports.
+- `flake8_report_before.txt` and `flake8_report_after.txt` — Flake8 reports.
+- `.gitignore` — Excludes the virtual environment and Python cache files.
 
-6. **Reflect.** Answer the four reflection questions from the handout in `reflection.md`.
+## Verification
 
-## Deliverables
-
-1. `dairy_collection.py`: your cleaned version, with at least 4 issues fixed.
-2. `issues.md`: the completed issue table.
-3. `reflection.md`: your answers to the reflection questions.
-
-**Target:** aim for a Pylint score above 9.5 on your final file. A perfect 10.00/10 is very good.
-
-Be ready to explain the bugs you found and how you fixed them. You may be called on to present.
+After fixing the issues, all three static analysis tools were run again. The final reports were checked to confirm that the security and formatting issues were resolved and that the Pylint score was above 9.5.
